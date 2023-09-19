@@ -33,4 +33,14 @@ class TransactionController extends Controller
             'message' => $reciverAccount->email . ' has recived ' .$request->amount. ' sucsessfully.',
         ], 200);
     }
+
+    public function myPastDebitedTransactions(Request $request)
+    {
+        return Transaction::where('sender_id', $request->user()->id)->paginate(15);
+    }
+
+    public function myPastCreditedTransactions(Request $request)
+    {
+        return Transaction::where('receiver_id', $request->user()->id)->paginate(15);
+    }
 }

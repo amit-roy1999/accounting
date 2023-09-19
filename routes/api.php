@@ -24,3 +24,5 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::get('sendMony', [TransactionController::class, 'sendMony'])->middleware(['auth:sanctum']);
+Route::get('myPastDebitedTransactions', [TransactionController::class, 'myPastDebitedTransactions'])->middleware(['auth:sanctum']);
+Route::get('myPastCreditedTransactions', [TransactionController::class, 'myPastCreditedTransactions'])->middleware(['auth:sanctum']);
